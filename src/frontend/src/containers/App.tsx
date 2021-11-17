@@ -1,13 +1,11 @@
 import * as React from 'react'
-import {Navbar} from "reactstrap";
+import NavigationBar from "../components/NavigationBar";
 
 function App() {
     return (
-        <Navbar color="dark" dark container="fluid">
-            <div className="text-center col-12">
-                <h3 className="text-light">Skin disease detection app</h3>
-            </div>
-        </Navbar>
+        <div>
+            <NavigationBar/>
+        </div>
     );
 }
 
