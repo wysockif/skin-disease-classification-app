@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar} from "reactstrap";
 
-function NavigationBar() {
+const NavigationBar = () => {
     return (
         <Navbar color="dark" dark container="fluid">
             <div className="text-center col-12">
