@@ -84,7 +84,7 @@ function App() {
                             Loading...
                         </Spinner></div>}
                         {!pendingApiCall && !uploadedImageUrl && !error && <div className="text-muted text-center mx-auto">
-                            Here you will see your predictions
+                            Here you will see the predictions
                         </div>}
                         {error && <div className="text-danger text-center mx-auto">
                             {error}
