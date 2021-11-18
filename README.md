@@ -1,1 +1,1 @@
-# Skin disease detection app
+# Skin disease classification app
