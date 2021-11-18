@@ -34,6 +34,16 @@ function App() {
         });
     };
 
+    const diseaseNameByTag: any = {
+        'mel': 'melanoma',
+        'nv': 'melanocytic nevus',
+        'bcc': 'basall cell carcinoma',
+        'df': 'dermatofibroma',
+        'vasc': 'vascular lesion',
+        'akiec': 'actinic keratosis / intraepithelial carcinoma',
+        'bkl': 'benign keratosis'
+    };
+
     return (
         <div className="container-lg">
             <NavigationBar/>
@@ -51,13 +61,21 @@ function App() {
                     </Col>}
                     {(uploadedImageUrl && predictions.length > 0) && <Row>
                         <Col className="col-6 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
+                            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                             <img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"/>
                         </Col>
                         <Col className="col-6 align-self-center">
-
-                            {predictions.length > 0 && <h4>Predictions:</h4>}
+                            {predictions.length > 0 && <h4><p>Predictions:</p></h4>}
                             {predictions.map(p => (
-                                <div key={p.probability}>{p.tagName} - {100 * p.probability}%</div>))}
+                                <div key={p.probability}>
+                                    {p.probability >= 0.8 &&
+                                    <p className="text-danger">{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                    {p.probability < 0.8 && p.probability > 0.3 &&
+                                    <p>{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                    {p.probability <= 0.3 &&
+                                    <p className="text-muted">{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                </div>
+                            ))}
                         </Col>
                     </Row>}
                 </Row>
