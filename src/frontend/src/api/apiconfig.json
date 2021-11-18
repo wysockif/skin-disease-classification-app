@@ -4,9 +4,8 @@
     "PredictionKey": "03e926fb108b4101be2033081f5933f0"
   },
   "AzureStorageApi": {
-    "Url": "https://tempstorageskinapp.blob.core.windows.net/mycontainer/nv_9423.jpg?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-11-17T23:30:44Z&st=2021-11-17T15:30:44Z&spr=https&sig=URaeWNfRh3SKL1vnejCNzAi7qQGqPWYJw2mSy5AmCNM%3D",
-    "SasToken" : "sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-11-17T23:30:44Z&st=2021-11-17T15:30:44Z&spr=https,http&sig=URaeWNfRh3SKL1vnejCNzAi7qQGqPWYJw2mSy5AmCNM%3D",
-    "ContainerName" : "mycontainer",
-    "StorageAccountName" : "tempstorageskinapp"
+    "SasToken" : "sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2022-11-18T20:52:47Z&st=2021-11-18T12:52:47Z&spr=https&sig=I7HNT%2BkfTQIBw7aPrINPnhYe7pmZRLX%2FHXvhu79ZpWo%3D",
+    "ContainerName" : "imgcontainer",
+    "StorageAccountName" : "skinimagesstorage"
   }
 }
