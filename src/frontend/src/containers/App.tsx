@@ -16,6 +16,14 @@ function App() {
     const onFileChange = (event: any) => {
         setError('');
         setUploadedImageUrl('')
+        setPredictions([]);
+        setSelectedFile(null);
+
+        if (event.target.files[0] === undefined){
+            setError('Any file was uploaded!');
+            return;
+        }
+
         const name = event.target.files[0].name;
         const lastDot = name.lastIndexOf('.');
         const ext = name.substring(lastDot + 1);
@@ -29,9 +37,17 @@ function App() {
     };
 
     const onFileUpload = async () => {
+        setError('');
         setPredictions([]);
         setUploadedImageUrl('');
         setPendingApiCall(true);
+        setSelectedFile(null);
+
+        if(!selectedFile){
+            setError('Any file was uploaded!');
+            return;
+        }
+
         uploadImageToStorage(selectedFile)
             .then(url => {
                 setUploadedImageUrl(url);
@@ -42,7 +58,7 @@ function App() {
         }).catch(error => {
             setPendingApiCall(false);
             setError('Invalid image content!')
-            console.error("Error occured: " + error)
+            console.error(error)
         });
     };
 
