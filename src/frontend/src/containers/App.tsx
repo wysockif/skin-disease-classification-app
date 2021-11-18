@@ -11,10 +11,21 @@ function App() {
     const [pendingApiCall, setPendingApiCall] = useState<boolean>(false);
     const [predictions, setPredictions] = useState<Prediction[]>([]);
     const [uploadedImageUrl, setUploadedImageUrl] = useState<string>('');
-
+    const [error, setError] = useState<string>('')
 
     const onFileChange = (event: any) => {
-        setSelectedFile(event.target.files[0]);
+        setError('');
+        setUploadedImageUrl('')
+        const name = event.target.files[0].name;
+        const lastDot = name.lastIndexOf('.');
+        const ext = name.substring(lastDot + 1);
+
+        if (ext === 'png' || ext === 'jpg' || ext === 'jpeg'){
+            setSelectedFile(event.target.files[0]);
+        } else {
+            setError('Unsupported file extension!');
+            event.target.value = null;
+        }
     };
 
     const onFileUpload = async () => {
@@ -30,6 +41,7 @@ function App() {
             setPredictions(response.data.predictions);
         }).catch(error => {
             setPendingApiCall(false);
+            setError('Invalid image content!')
             console.error("Error occured: " + error)
         });
     };
@@ -50,13 +62,16 @@ function App() {
             <FileUploadCard onFileChange={onFileChange} onFileUpload={onFileUpload}/>
             <Card style={{minHeight: "60vh"}}>
                 <Row>
-                    {(pendingApiCall || (!pendingApiCall && !uploadedImageUrl)) &&
+                    {(pendingApiCall || (!pendingApiCall && !uploadedImageUrl) || error) &&
                     <Col className="col-12 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
-                        {pendingApiCall && <div className="text-center mx-auto"><Spinner>
+                        {pendingApiCall && !error && <div className="text-center mx-auto"><Spinner>
                             Loading...
                         </Spinner></div>}
-                        {!pendingApiCall && !uploadedImageUrl && <div className="text-muted text-center mx-auto">
+                        {!pendingApiCall && !uploadedImageUrl && !error && <div className="text-muted text-center mx-auto">
                             Here you will see your predictions
+                        </div>}
+                        {error && <div className="text-danger text-center mx-auto">
+                            {error}
                         </div>}
                     </Col>}
                     {(uploadedImageUrl && predictions.length > 0) && <Row>
@@ -69,11 +84,14 @@ function App() {
                             {predictions.map(p => (
                                 <div key={p.probability}>
                                     {p.probability >= 0.8 &&
-                                    <p className="text-danger">{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                    <p className="text-danger">{Math.round(p.probability * 10000) / 100}%
+                                        - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
                                     {p.probability < 0.8 && p.probability > 0.3 &&
-                                    <p>{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                    <p>{Math.round(p.probability * 10000) / 100}%
+                                        - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
                                     {p.probability <= 0.3 &&
-                                    <p className="text-muted">{Math.round(p.probability * 10000) / 100}% - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
+                                    <p className="text-muted">{Math.round(p.probability * 10000) / 100}%
+                                        - {diseaseNameByTag[p.tagName]} ({p.tagName})</p>}
                                 </div>
                             ))}
                         </Col>

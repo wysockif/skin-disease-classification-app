@@ -1,16 +1,14 @@
-import {Button, Card, CardText, CardTitle, FormGroup, FormText, Input, InputGroup} from "reactstrap";
+import {Button, Card, CardText, CardTitle, FormGroup, Input, InputGroup} from "reactstrap";
 import * as React from "react";
 
-export const FileUploadCard = (props : any) => (
+export const FileUploadCard = (props: any) => (
     <Card body>
-        <CardTitle tag="h5">
-            Upload your image
-        </CardTitle>
+        <CardTitle>Upload a photo</CardTitle>
         <CardText>
-            Upload your image to see predictions
+            <small>The photo should be cropped to the place of your potential skin disease</small>
         </CardText>
         <FormGroup>
-            <div>
+            <div className="mb-1">
                 <InputGroup>
                     <Input
                         onChange={props.onFileChange}
@@ -21,9 +19,7 @@ export const FileUploadCard = (props : any) => (
                     <Button type="submit" onClick={props.onFileUpload}>Upload</Button>
                 </InputGroup>
             </div>
-            <FormText>
-                Supported file extensions are: png, jpeg, jpg.
-            </FormText>
+            <small className="text-muted">Supported file extensions are: png, jpeg, jpg.</small>
         </FormGroup>
     </Card>
 );

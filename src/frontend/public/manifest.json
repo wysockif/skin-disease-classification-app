@@ -1,6 +1,6 @@
 {
-  "short_name": "Skin Disease Detection App",
-  "name": "Skin Disease Detection App",
+  "short_name": "Skin Disease Classification App",
+  "name": "Skin Disease Classification App",
   "icons": [
     {
       "src": "favicon.ico",
