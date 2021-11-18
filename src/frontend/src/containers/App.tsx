@@ -18,15 +18,18 @@ function App() {
     };
 
     const onFileUpload = async () => {
+        setPredictions([]);
+        setUploadedImageUrl('');
         setPendingApiCall(true);
         uploadImageToStorage(selectedFile)
             .then(url => {
                 setUploadedImageUrl(url);
-                setPendingApiCall(false);
                 return getPredictions(url);
             }).then(response => {
+            setPendingApiCall(false);
             setPredictions(response.data.predictions);
         }).catch(error => {
+            setPendingApiCall(false);
             console.error("Error occured: " + error)
         });
     };
@@ -35,16 +38,18 @@ function App() {
         <div className="container-lg">
             <NavigationBar/>
             <FileUploadCard onFileChange={onFileChange} onFileUpload={onFileUpload}/>
-            <Card style={{minHeight: "56vh"}}>
+            <Card style={{minHeight: "60vh"}}>
                 <Row>
-
-                    {pendingApiCall &&
+                    {(pendingApiCall || (!pendingApiCall && !uploadedImageUrl)) &&
                     <Col className="col-12 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
-                        <div className="text-center mx-auto"><Spinner>
+                        {pendingApiCall && <div className="text-center mx-auto"><Spinner>
                             Loading...
-                        </Spinner></div>
+                        </Spinner></div>}
+                        {!pendingApiCall && !uploadedImageUrl && <div className="text-muted text-center mx-auto">
+                            Here you will see your predictions
+                        </div>}
                     </Col>}
-                    {uploadedImageUrl && <Row>
+                    {(uploadedImageUrl && predictions.length > 0) && <Row>
                         <Col className="col-6 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
                             <img src={uploadedImageUrl} className="img-fluid mx-auto d-block" alt="Uploaded image"/>
                         </Col>
@@ -53,7 +58,6 @@ function App() {
                             {predictions.length > 0 && <h4>Predictions:</h4>}
                             {predictions.map(p => (
                                 <div key={p.probability}>{p.tagName} - {100 * p.probability}%</div>))}
-
                         </Col>
                     </Row>}
                 </Row>

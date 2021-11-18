@@ -5,7 +5,7 @@ const NavigationBar = () => {
     return (
         <Navbar color="dark" dark container="fluid">
             <div className="text-center col-12">
-                <h3 className="text-light">Skin disease detection app</h3>
+                <h3 className="text-light">Skin disease classification app</h3>
             </div>
         </Navbar>
     );
