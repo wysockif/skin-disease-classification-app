@@ -73,10 +73,10 @@ function App() {
     };
 
     return (
-        <div className="container-lg">
+        <div className="container-lg mb-3">
             <NavigationBar/>
             <FileUploadCard onFileChange={onFileChange} onFileUpload={onFileUpload}/>
-            <Card style={{minHeight: "60vh"}}>
+            <Card className="mt-2" style={{minHeight: "60vh"}}>
                 <Row>
                     {(pendingApiCall || (!pendingApiCall && !uploadedImageUrl) || error) &&
                     <Col className="col-12 d-flex flex-wrap align-items-center" style={{minHeight: "56vh"}}>
