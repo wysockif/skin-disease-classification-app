@@ -22,9 +22,9 @@
 
 ![Mel](img/mel.png)
 
-Skin disease classification app is a web application which enables users to upload photos (mainly of their skin) and to receive a probability with which it is a certain skin disease. An aim of this project was to check if it is possible to classify skin diseases based on their photos, which could be a great option to improve predictions of diseases made by human. Developing this kind of technology could be very rewarding in terms of detecing for instance cancer in its early stages which could lead to more accurate and prospering treatment.
+Skin disease classification app is a web application which enables users to upload photos (mainly of their skin) and to receive a probability with which it is a certain skin disease. An aim of this project was to check if it is possible to classify skin diseases based on their photos, which could be a great option to improve predictions of diseases made by human. Developing this kind of technology could be very rewarding in terms of detecting, for instance cancer in its early stages, which could lead to more accurate and prospering treatment.
 
-App was created as a 2-week project for a class "Introduction to applications and solutions based on Artficial Intelligence". The theme of a project was to create an app which brings some innovation to this world and has a potential of bringing benefits for people.
+Tha app was created as a 2-week project for a class "Introduction to applications and solutions based on Artificial Intelligence". The theme of a project was to create an app which brings some innovation to this world and has a potential of bringing benefits for people.
 
 ---
 
