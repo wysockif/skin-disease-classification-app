@@ -1,5 +1,7 @@
 # Skin disease classification app
 
+https://skin-disease-classification-app.azurewebsites.net
+
 ## General information 
 
 ![Mel](img/mel.png)
@@ -18,6 +20,7 @@
 
 Benign keratosis (bkl):
 ![BKL](img/bkl.png)
+
 Melanocytic nevus (nv):
 ![Nv](img/nv.png)
 
