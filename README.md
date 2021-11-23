@@ -57,9 +57,7 @@ It is a large collection of multi-source dermatoscopic images of common pigmente
 
 ## Architecture Diagram
 
----
-
-## Features
+![Architecture](img/diagram.png)
 
 ---
 
