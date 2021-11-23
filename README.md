@@ -10,7 +10,7 @@
 - [Used Dataset](#used-dataset)
 - [Used Technologies](#used-technologies)
 - [Development process](#development-process)
-- [Architecture Scheme](#architecure-scheme)
+- [Architecture Diagram](#architecture-diagram)
 - [How does it work](#how-does-it-work)
 - [Demo](#demo)
 - [Screenshots](#screenshots)
@@ -55,7 +55,7 @@ It is a large collection of multi-source dermatoscopic images of common pigmente
 
 ---
 
-## Architecture Scheme
+## Architecture Diagram
 
 ---
 
