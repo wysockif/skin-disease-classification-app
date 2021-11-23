@@ -19,6 +19,16 @@
 
 ## Features
 
+## How does it work
+
+1. A user opens the web application (hosted in Azure App Service), then uploads a photo of a skin disease and
+clicks Upload button.
+4. The web application sends the image to Azure Blob Storage.
+5. Azure Blob Storage returns a url of the uploaded resource.
+6. The web application sends the image url to Custom Vision API.
+7. Custom Vision API returns predictions.
+8. The web application presents the predections.
+
 ## Demo
 
 See a demo (in polish):
