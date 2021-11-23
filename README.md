@@ -13,6 +13,11 @@
 
 ## Dataset
 
+The dataset that we have used is HAM10000, a large collection of multi-source dermatoscopic images of common pigmented skin lesions
+
+<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T" target="_blank">dataverse.harvard.edu/dataset.xhtml</a>
+
+
 ## Architecture
 
 ## Technologies used
@@ -22,7 +27,7 @@
 ## How does it work
 
 1. A user opens the web application (hosted in Azure App Service), then uploads a photo of a skin disease and
-clicks Upload button.
+clicks the Upload button.
 4. The web application sends the image to Azure Blob Storage.
 5. Azure Blob Storage returns a url of the uploaded resource.
 6. The web application sends the image url to Custom Vision API.
