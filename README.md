@@ -22,14 +22,17 @@
 ## Demo
 
 See a demo (in polish):
+
  [![Demo](img/video.png)](https://youtu.be/596PyXO04MA)
 
 ## Screenshots
 
 Benign keratosis (bkl):
+
 ![BKL](img/bkl.png)
 
 Melanocytic nevus (nv):
+
 ![Nv](img/nv.png)
 
 ## Team
