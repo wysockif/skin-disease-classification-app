@@ -1,12 +1,15 @@
 # Skin disease classification app
 
-https://skin-disease-classification-app.azurewebsites.net
+<a href="https://skin-disease-classification-app.azurewebsites.net" target="_blank">https://skin-disease-classification-app.azurewebsites.net</a>
+
 
 ## General information 
 
 ![Mel](img/mel.png)
 
  // description
+
+
 
 ## Dataset
 
@@ -15,6 +18,11 @@ https://skin-disease-classification-app.azurewebsites.net
 ## Technologies used
 
 ## Features
+
+## Demo
+
+See a demo (in polish):
+ [![Demo](img/video.png)](https://youtu.be/596PyXO04MA)
 
 ## Screenshots
 
